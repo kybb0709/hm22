@@ -51,3 +51,9 @@ html5 class
   - Date, String, Array, Math의 코어 객체를 활용함.
   - 객체와 멤버 사이에 점 연산자를 이용함.
   - 배열을 만듬.
+- wk12 upload
+  - 파일 29개 올림.
+  - HTML DOM 객체에 대해 배움.
+  - DOM 객체의 CSS3 스타일 동적 변경해봄.
+  - document는 HTML 문서 전체를 대변하는 객체임.
+  - 브라우저 관련 객체(BOM)들의 종류를 배움.
