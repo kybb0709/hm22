@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>hm22 : 실습과제 2</title>
+    <style></style>
+    <script>
+      function load() {
+        var select = document.getElementById("site");
+        window.location = select.options[select.selectedIndex].value;
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <h2>내가 좋아하는 음악 3개는?</h2>
+    <hr />
+    <form>
+      노래 제목 : <input type="text" list="music" /><br />
+      <datalist id="music">
+        <option value="사계"> </option>
+        <option value="너였나봐"> </option>
+        <option value="Kill this love"> </option>
+      </datalist>
+
+      보고싶은것 : <input type="text" list="what" /><br />
+      <datalist id="what">
+        <option value="태연"> </option>
+        <option value="청하"> </option>
+        <option value="블랙핑크"> </option>
+      </datalist>
+    </form>
+    <ul>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href="https://www.melon.com/album/detail.htm?albumId=10265079"
+        target="in"
+        ><b>사계</b></a
+      >
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href="https://www.melon.com/album/detail.htm?albumId=10209746"
+        target="in"
+        ><b>너였나봐</b></a
+      >
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href="https://www.melon.com/song/detail.htm?songId=31717822"
+        target="in"
+        ><b>Kill this love</b></a
+      >
+
+      <iframe
+        src="https://www.melon.com/album/detail.htm?albumId=10265079"
+        name="in"
+        width="600"
+        height="500"
+      ></iframe>
+    </ul>
+    <hr />
+    가수 정보가 궁금하신가요? :
+    <select id="site">
+      <option value="https://www.melon.com/artist/timeline.htm?artistId=236797"
+        >태연(사계) </option
+      ><option value="https://www.melon.com/artist/timeline.htm?artistId=968265"
+        >청하(너였나봐) </option
+      ><option value="https://www.melon.com/artist/timeline.htm?artistId=995169"
+        >블랙핑크(KILL THIS LOVE)
+      </option></select
+    >
+
+    <br />
+    <br />
+    <button onclick="load()">더 알아보기(사이트 이동)</button>
+  </body>
+</html>

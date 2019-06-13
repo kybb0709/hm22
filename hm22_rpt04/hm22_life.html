@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>HM22's daily life</title>
+    <style>
+      span {
+        transition: font-size 5s;
+      }
+      span:hover {
+        font-size: 500%;
+      }
+    </style>
+    <script>
+      function startScroll(interval) {
+        setInterval("autoScroll()", interval);
+      }
+      function autoScroll() {
+        window.scrollBy(0, 10);
+      }
+    </script>
+  </head>
+
+  <body onload="startScroll(1000)">
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <div>
+      <h2>
+        <span id="span" style="background-color:lightblue"
+          >HM22's daily life
+        </span>
+      </h2>
+    </div>
+    <script>
+      var span = document.getElementById("span");
+      var timerID = setInterval("doRotate()", 200);
+
+      span.onclick = function(e) {
+        clearInterval(timerID);
+      };
+      function doRotate() {
+        var str = span.innerHTML;
+        var firstChar = str.substr(0, 1);
+        var remains = str.substr(1, str.length - 1);
+        str = remains + firstChar;
+        span.innerHTML = str;
+      }
+    </script>
+    <hr />
+    <p>
+      <details>
+        <summary>Morning <meter value="0.2">20%</meter></summary>
+        <ol type="1">
+          <li>오전 <time>06:30</time> 기상</li>
+          <li>아침 먹고 씻기</li>
+          <li>통학버스타고 학교오기</li>
+        </ol>
+      </details>
+    </p>
+    <p>
+      <details>
+        <summary>Afternoon <meter value="0.7">70%</meter></summary>
+        <ol type="1">
+          <li>학교 수업</li>
+          <br />
+          <script>
+            document.write("학교에 있으면 느끼는 점<br>");
+          </script>
+          <script>
+            for (var size = 10; size <= 25; size += 5) {
+              document.write("<span ");
+              document.write("style='font-size:" + size + "px'>");
+              document.write("<mark>집</mark>");
+              document.write("</span>");
+            }
+          </script>
+          <script>
+            document.write("에 가고 싶다..<br>");
+          </script>
+          <br />
+          <li>점심</li>
+        </ol>
+      </details>
+    </p>
+    <p>
+      <details>
+        <summary
+          >Evening <meter value="1.0">100%</meter><span>하루 끝!</span></summary
+        >
+        <ol type="1">
+          <li>통학버스타고 집에 오기</li>
+          <li>저녁</li>
+          <li>과제하기</li>
+          <li>휴식 + 취침</li>
+        </ol>
+      </details>
+    </p>
+  </body>
+</html>

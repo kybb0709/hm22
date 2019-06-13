@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>HM22 IoT</title>
+    <script>
+      function drawImage() {
+        var sel = document.getElementById("place");
+        var img = document.getElementById("placeimage");
+        img.src = sel.options[sel.selectedIndex].value;
+      }
+    </script>
+  </head>
+  <style>
+    div {
+      font: normal 24px verdata;
+    }
+    .multiEffect {
+      color: lightgreen;
+      text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    }
+    .multiEffect2 {
+      color: yellow;
+      text-shadow: 2px 2px 2px black, 0 0 25px orange, 0 0 5px red;
+    }
+  </style>
+  <body onload="drawImage()">
+    <h3>홈 제어 시스템 - 온도 조절</h3>
+    <hr />
+    <form>
+      <div class="multiEffect">지속시간</div>
+      (0.0~10.0시간) :
+      <input type="number" min="0.0" max="10.0" step="0.5" />
+      <br />
+      <br />
+      <div class="multiEffect2">온도 설정</div>
+      :10&deg;
+      <input type="range" min="10" max="30" list="temperatures" />
+      30&deg;
+      <datalist id="temperatures">
+        <option value="12" label="Low"></option>
+        <option value="20" label="Medium"></option>
+        <option value="28" label="High"> </option>
+      </datalist>
+    </form>
+    <br />
+    <form>
+      <input type="radio" name="how" value="1" />더워요<img
+        src="media2/sun.jpg"
+        width="100"
+        height="100"
+      /><br />
+      <input type="radio" name="how" value="2" />추워요<img
+        src="media2/snowman.jpg"
+        width="100"
+        height="100"
+      /><br />
+    </form>
+    <hr />
+    <div>
+      <span id="span" style="background-color:lightcoral"
+        >여름과 겨울 중, 뭐가 더 좋나요 ?
+      </span>
+    </div>
+    <script>
+      var span = document.getElementById("span");
+      var timerID = setInterval("doRotate()", 200);
+
+      span.onclick = function(e) {
+        clearInterval(timerID);
+      };
+      function doRotate() {
+        var str = span.innerHTML;
+        var firstChar = str.substr(0, 1);
+        var remains = str.substr(1, str.length - 1);
+        str = remains + firstChar;
+        span.innerHTML = str;
+      }
+    </script>
+    <p></p>
+    <form>
+      <select id="place" onchange="drawImage()">
+        <option value="media/beach.jpg" selected>여름 </option
+        ><option value="media/ski.jpg">겨울 </option></select
+      >
+
+      <img id="placeimage" src="" alt="" />
+    </form>
+  </body>
+</html>

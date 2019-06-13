@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>hm22 : Semantic tag and form</title>
+    <style></style>
+    <script>
+        var p;
+        function init()
+        {
+          p=document.getElementById("p");
+          p.onmouseover = over;
+          p.onmouseout = out;
+        }
+        function over()
+        {
+          p.style.backgroundColor="orchid";
+        }
+        function out()
+        {
+          p.style.backgroundColor="white";
+        }
+        document.write("아래 사진을 클릭해보세요.<br>");
+      </script>
+    <script>
+      // 미리 로딩해둘 이미지 이름 배열
+      var files = [
+        "media/cat.jpg",
+        "media/dog.jpg",
+        "media/apeach.png",
+        "media/dora.jpg",
+        "media/jjang.jpg"
+      ];
+      var imgs = new Array();
+      for (var i = 0; i < files.length; i++) {
+        imgs[i] = new Image(); // 메모리에 이미지 객체 생성
+        imgs[i].src = files[i]; // 이미지 로딩
+      }
+      // 다음 이미지 출력
+      var next = 1;
+      function change(img) {
+        img.src = imgs[next].src; // 이미지 변경
+        next++; // 다음 이미지
+        next %= imgs.length; // 개수를 넘으면 처음으로
+      }
+    </script>
+    <script>
+      function query() {
+        var ret = confirm("학과 홈페이지로 이동하시겠습니까?");
+        return ret;
+        // confirm()의 리턴 값은 true 또는 false
+      }
+      function noAction(e) {
+        e.preventDefault();
+        // 이벤트의 디폴트 행동 강제취소
+      }
+    </script>
+  </head>
+
+  <body onload="init()">
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <h2>
+      <a href="https://ko.wikipedia.org/wiki/엘비스_프레슬리"> Who is hm22?</a>
+    </h2>
+
+    <p>
+      <strong>1999년7월9일에 태어남.</strong><br /><br />
+      가족은 <i>5명</i>임.<br /><br />
+      18년도에 <mark>인제대학교 컴퓨터시뮬레이션</mark> 입학하였음.<br />
+      <hr />
+    <a href="http://comsi.inje.ac.kr/" onclick="return query()">
+      학과 홈페이지로 이동하기</a
+    >
+    <hr />
+      <a href="https://blog.naver.com/girlsplanet_" target="_blank">
+        <img
+          src="media2/cutecute.jpg"
+          width="200"
+          height="100"
+          alt="강아지"/></a
+      ><br />
+      <h title="사진 클릭->좋아하는 강아지 유튜버 블로그로 이동"
+        ><ins>강아지를 좋아함.</ins></h
+      ><br />
+      <br />
+
+      <p id="p">아래 사진을 클릭하세요.</p>
+      <img
+        style="border:20px ridge wheat"
+        src="media/cat.jpg"
+        alt="."
+        width="200"
+        height="200"
+        onclick="change(this)"
+      />
+      <br />
+      <script>
+        document.write("위와 같은 <mark>귀여운</mark> 것을 좋아함.<br>");
+      </script>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>hm22 : 폼 입력 그룹으로 묶기 - fieldset</title>
+    <style>
+      input[type="text"] {
+        /* text 창에만 적용 */
+        color: red;
+      }
+      input:hover,
+      textarea:hover {
+        /* 마우스 올라 올 때 */
+        background: aliceblue;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus {
+        /* 포커스 받을 때 */
+        font-size: 120%;
+      }
+      label {
+        display: block; /* 새 라인에서 시작 */
+        padding: 10px;
+      }
+      label span {
+        float: left;
+        width: 90px;
+        text-align: left;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      var win = null; // window 객체
+      function showHTML() {
+        if (win == null || win.closed)
+          win = window.open("", "outWin", "width=300,height=200");
+        var textArea = document.getElementById("srcText");
+        win.document.open();
+        win.document.write(textArea.value);
+        win.document.close();
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <h3>동호회에 가입하시려면 회원 정보를 입력해주세요.</h3>
+    <hr />
+    <form>
+      <fieldset>
+        <legend>회원정보</legend>
+        이메일 : <input type="email" placeholder="hm22@naver.com" /><br />
+        홈페이지 :
+        <input
+          type="url"
+          placeholder="https://github.com/kybb0709/hm22"
+        /><br />
+        전화번호 : <input type="tel" placeholder="01012345678" />
+      </fieldset>
+      <small>질문 : Tel. 010-123-4567</small>
+      <br />
+      <br />
+
+      <button onclick="f(event)">가입</button>
+      <script>
+        function f(e) {
+          alert(e.type);
+        }
+      </script>
+    </form>
+    <br />
+    <hr />
+    <h><strong>첫 정모는 hm22의 생일날</strong></h>
+    <form>
+      <table>
+        <tr>
+          <td>생일</td>
+          <td>
+            <input type="date" value="2019-07-09" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>생일파티시간</td>
+          <td>
+            <input type="time" value="18:00" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>생일파티장소</td>
+          <td>
+            <input type="place" value="hm22's home" />
+          </td>
+        </tr>
+      </table>
+
+      <hr />
+      <p>궁금한 점은 적어서 번호로 보내주세요. <br /></p>
+      <textarea id="srcText" rows="10" cols="50"></textarea>
+      <br />
+      <br />
+      <button onclick="showHTML()">
+        입력 사항 확인하기
+      </button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <audio src="media2/birthdaymusic.mp3" controls autoplay loop></audio>
+  </body>
+</html>
